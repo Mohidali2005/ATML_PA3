@@ -1,0 +1,23 @@
+# python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# caches and big files
+.cache/
+hf_cache/
+outputs/
+data/
+*.zip
+*.pt
+*.safetensors
+
+# assignment manual
+ATML-PA3.pdf
+
+# report build files
+report_latex/*.aux
+report_latex/*.bbl
+report_latex/*.blg
+report_latex/*.log
+report_latex/*.out

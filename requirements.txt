@@ -1,0 +1,7 @@
+transformers==4.57.1
+datasets==5.0.1
+lm_eval==0.4.13
+accelerate
+pyyaml
+pandas
+matplotlib

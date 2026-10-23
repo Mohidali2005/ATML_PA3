@@ -1,0 +1,38 @@
+seed: 6304
+model: Qwen/Qwen3-0.6B
+
+num_examples: 40000
+max_length: 2048
+microbatch_size: 2
+accum_steps: 16
+total_updates: 1250
+warmup_updates: 38
+weight_decay: 0.01
+max_grad_norm: 1.0
+adam_betas: [0.9,0.999]
+adam_eps: 1.0e-8
+
+lora_dropout: 0.05
+lora_targets: [q_proj,k_proj,v_proj,o_proj,gate_proj,up_proj,down_proj]
+protect_rank: 128
+diag_layers: [0,13,27]
+probe_size: 32
+
+methods:
+  full: {kind: full,lr: 2.0e-5,l2sp: 0.0}
+  l2sp: {kind: full,lr: 2.0e-5,l2sp: 1.0e-3}
+  lora4: {kind: lora,lr: 2.0e-4,rank: 4,alpha: 8}
+  lora16: {kind: lora,lr: 2.0e-4,rank: 16,alpha: 32}
+  oplora: {kind: oplora,lr: 2.0e-4,rank: 16,alpha: 32}
+
+eval:
+  gsm8k_max_gen_tokens: 1024
+  gsm8k_batch_size: 32
+  loglik_batch_size: auto
+  qualitative_max_new_tokens: 512
+  qualitative_batch_size: 8
+
+paths:
+  data_dir: data/task1
+  work_dir: outputs/task1
+  results_dir: results/task1
