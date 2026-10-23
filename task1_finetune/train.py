@@ -9,6 +9,7 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 from torch.optim import AdamW
+from torch.utils.checkpoint import checkpoint
 from torch.optim.lr_scheduler import LambdaLR
 
 from common.utils import load_yaml,read_jsonl,repo_path,save_json,set_seed
@@ -58,11 +59,16 @@ def squared_distance(model,ref,penalty=0.0):
     """Sum of squared differences to the starting weights and optionally the l2sp gradient"""
     total = torch.zeros((),device=DEVICE)
     for name,p in model.named_parameters():
-        diff = p.detach()-ref[name].float()
+        diff = p.detach()-ref[name].to(p.device).float()
         total += diff.pow(2).sum()
         if penalty > 0 and p.grad is not None:
             p.grad.add_(diff,alpha=penalty)
     return total.item()
+
+
+def chunk_loss(head,hidden,targets):
+    """Summed token loss for one chunk of positions"""
+    return F.cross_entropy(head(hidden).float(),targets,reduction="sum")
 
 
 def micro_loss(model,batch,total_tokens):
@@ -72,9 +78,10 @@ def micro_loss(model,batch,total_tokens):
     keep = targets != -100
     with torch.autocast(DEVICE,dtype=torch.float16,enabled=USE_AMP):
         hidden = model.model(input_ids=batch["input_ids"],attention_mask=batch["attention_mask"]).last_hidden_state
-        # running the output layer only on scored positions to save memory
-        logits = model.lm_head(hidden[:,:-1][keep])
-    return F.cross_entropy(logits.float(),targets[keep],reduction="sum")/total_tokens
+        # running the output layer on scored positions only and in chunks to save memory
+        hidden,targets = hidden[:,:-1][keep],targets[keep]
+        loss = sum(checkpoint(chunk_loss,model.lm_head,h,t,use_reentrant=False) for h,t in zip(hidden.split(1024),targets.split(1024)))
+    return loss/total_tokens
 
 
 def down_proj_updates(model,ref,cfg,method):
@@ -185,7 +192,9 @@ def main():
     if method["kind"] == "full":
         # the checkpoint is bf16 so this copy of the starting weights is exact
         start = time.perf_counter()
-        ref = {n:p.detach().to(torch.bfloat16).clone() for n,p in model.named_parameters()}
+        # only l2sp reads the reference every update so the plain run keeps it on the cpu
+        ref_device = DEVICE if method["l2sp"] > 0 else "cpu"
+        ref = {n:p.detach().to(ref_device,torch.bfloat16) for n,p in model.named_parameters()}
         setup["reference_seconds"] = time.perf_counter()-start
         setup["reference_bytes"] = sum(t.numel()*2 for t in ref.values())
 
