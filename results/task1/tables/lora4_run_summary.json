@@ -1,0 +1,18 @@
+{
+  "method": "lora4",
+  "updates": 1250,
+  "examples_seen": 40000,
+  "learning_rate": 0.0002,
+  "trainable_params": 2523136,
+  "total_params": 598573056,
+  "train_seconds": 9852.040560579015,
+  "peak_memory_gb": 3.369686016,
+  "skipped_updates": 0,
+  "export_seconds": 0.09813833399857685,
+  "final_checkpoint_bytes": 10206703,
+  "resume_checkpoint_bytes": 30843974,
+  "displacement": {},
+  "setup_seconds": 0.05307271399999536,
+  "basis_bytes": 0,
+  "init_checksum": -16.829631961882114
+}
