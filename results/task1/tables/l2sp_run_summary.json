@@ -1,0 +1,19 @@
+{
+  "method": "l2sp",
+  "updates": 1250,
+  "examples_seen": 40000,
+  "learning_rate": 2e-05,
+  "trainable_params": 596049920,
+  "total_params": 596049920,
+  "train_seconds": 8582.714321808002,
+  "peak_memory_gb": 13.735911936,
+  "skipped_updates": 0,
+  "export_seconds": 3.187503574999937,
+  "final_checkpoint_bytes": 1208018590,
+  "resume_checkpoint_bytes": 7153132601,
+  "displacement": {
+    "final": 6.261076001205471
+  },
+  "reference_seconds": 0.03445558600003551,
+  "reference_bytes": 1192099840
+}

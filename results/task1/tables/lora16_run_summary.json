@@ -1,0 +1,18 @@
+{
+  "method": "lora16",
+  "updates": 1250,
+  "examples_seen": 40000,
+  "learning_rate": 0.0002,
+  "trainable_params": 10092544,
+  "total_params": 606142464,
+  "train_seconds": 10061.912809425998,
+  "peak_memory_gb": 3.490796544,
+  "skipped_updates": 0,
+  "export_seconds": 0.11916240299979108,
+  "final_checkpoint_bytes": 40484335,
+  "resume_checkpoint_bytes": 121676613,
+  "displacement": {},
+  "setup_seconds": 0.05278227500002686,
+  "basis_bytes": 0,
+  "init_checksum": -46.282724261283875
+}

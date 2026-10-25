@@ -1,0 +1,18 @@
+{
+  "method": "oplora",
+  "updates": 1250,
+  "examples_seen": 40000,
+  "learning_rate": 0.0002,
+  "trainable_params": 10092544,
+  "total_params": 606142464,
+  "train_seconds": 12340.627142478026,
+  "peak_memory_gb": 3.813757952,
+  "skipped_updates": 0,
+  "export_seconds": 0.1510459279998031,
+  "final_checkpoint_bytes": 40484335,
+  "resume_checkpoint_bytes": 121676613,
+  "displacement": {},
+  "setup_seconds": 30.993422643999963,
+  "basis_bytes": 322961408,
+  "init_checksum": -46.282724261283875
+}
