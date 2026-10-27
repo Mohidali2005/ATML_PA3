@@ -3,7 +3,7 @@
 Code for the three tasks of programming assignment 3 (EE-5102 / CS-6304): LLM fine-tuning,
 vision-language models and test-time compute. Everything uses seed 6304.
 
-Only Task 1 is implemented so far.
+Tasks 1 and 2 are implemented so far.
 
 ## Setup
 
@@ -38,3 +38,33 @@ python -m task1_finetune.diagnostics --work-dir <checkpoint folder>
 The conditions are `baseline`, `full_mid`, `full`, `l2sp`, `lora4`, `lora16` and `oplora`.
 Add `--resume` to a training command to continue from the latest checkpoint after a disconnect.
 `configs/task1.yaml` holds every hyperparameter.
+
+## Task 2: vision-language model (SigLIP and Qwen3-0.6B)
+
+A frozen SigLIP encoder (`google/siglip-base-patch16-224`) gives 196 patch features per image. A two layer
+connector maps them into the embedding space of a frozen Qwen3-0.6B, which receives them as visual tokens in
+front of the question. The model is trained in three continuing stages (caption alignment, visual instruction
+tuning with LoRA rank 16, natural VQAv2) for 4,500 updates and then evaluated on complementary image pairs
+under four image conditions: correct image, partner image, unrelated image and no image.
+
+Data comes from COCO 2014 captions and instance annotations and from the VQAv2 questions, annotations and
+complementary pairs. Presence and counting questions are generated from the COCO instance annotations. The
+selected image, question and pair IDs are in `results/task2/ids/`. Answer normalization follows the official
+VQA evaluation code (`vqaEval.py` of the VQA benchmark release).
+
+Run the steps from the repository root, in this order:
+
+```
+python -m task2_vlm.prepare_data
+python -m task2_vlm.inspect_labels
+python -m task2_vlm.cache_features --features-dir <feature folder>
+python -m task2_vlm.check_interface --features-dir <feature folder> --real-encoder
+python -m task2_vlm.train --features-dir <feature folder> --work-dir <checkpoint folder>
+python -m task2_vlm.evaluate --features-dir <feature folder> --work-dir <checkpoint folder>
+python -m task2_vlm.analyze
+```
+
+`inspect_labels` writes contact sheets of a random sample of grounding evaluation images for a manual label
+check. After the labels are filled into the csv, `python -m task2_vlm.inspect_labels --summarize` records the
+outcome. `scripts/run_task2_data.sh` and `scripts/run_task2_train.sh` chain the steps. Add `--resume` to the
+training command to continue from the latest checkpoint. `configs/task2.yaml` holds every hyperparameter.

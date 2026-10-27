@@ -1,0 +1,57 @@
+seed: 6304
+llm: Qwen/Qwen3-0.6B
+encoder: google/siglip-base-patch16-224
+
+num_patches: 196
+feature_dim: 768
+llm_dim: 1024
+
+microbatch_size: 8
+accum_steps: 2
+weight_decay: 0.01
+max_grad_norm: 1.0
+warmup_fraction: 0.05
+final_lr_fraction: 0.1
+adam_betas: [0.9,0.999]
+adam_eps: 1.0e-8
+
+max_question_tokens: 80
+max_caption_tokens: 64
+max_answer_tokens: 16
+
+lora: {rank: 16,alpha: 32,dropout: 0.05,targets: [q_proj,k_proj,v_proj,o_proj]}
+
+stages:
+  - {name: caption,updates: 2250,connector_lr: 1.0e-3,lora_lr: 0.0}
+  - {name: instruction,updates: 1500,connector_lr: 1.0e-4,lora_lr: 2.0e-5,mixture: {presence: 0.5,counting: 0.25,caption: 0.25}}
+  - {name: natural,updates: 750,connector_lr: 5.0e-5,lora_lr: 1.0e-5,mixture: {vqa: 0.7,presence: 0.1,counting: 0.1,caption: 0.1}}
+
+data:
+  train_images: 6000
+  captions_per_image: 3
+  dev_caption_images: 96
+  grounding_pool_pairs: 4000
+  grounding_pairs: {dev: 24,test: 64}
+  min_area_fraction: 0.02
+  count_range: [1,4]
+  vqa_pairs: {train: {yes/no: 640,number: 256,other: 640},dev: {yes/no: 12,number: 8,other: 12},test: {yes/no: 36,number: 24,other: 36}}
+  min_agreement: 8
+  label_check_images: 40
+
+prompts:
+  caption: Describe the image briefly.
+  answer_suffix: Answer the question using a single word or phrase.
+
+eval:
+  dev_every: 500
+  dev_generation_examples: 16
+  checkpoint_every: 250
+  max_new_tokens: 16
+  batch_size: 8
+  bootstrap_samples: 4000
+  nll_batch_size: 16
+
+paths:
+  data_dir: data/task2
+  work_dir: outputs/task2
+  results_dir: results/task2

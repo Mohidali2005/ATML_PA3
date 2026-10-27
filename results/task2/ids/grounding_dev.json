@@ -1,0 +1,218 @@
+[
+  {
+    "pair_id": "dev_presence_0",
+    "question": "Does this image contain a keyboard?",
+    "images": [
+      353028,
+      39852
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "dev_presence_1",
+    "question": "Does this image contain a teddy bear?",
+    "images": [
+      258402,
+      3939
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "dev_presence_2",
+    "question": "Does this image contain a traffic light?",
+    "images": [
+      498533,
+      372433
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "dev_presence_3",
+    "question": "Does this image contain a book?",
+    "images": [
+      263866,
+      325211
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "dev_presence_4",
+    "question": "Does this image contain a truck?",
+    "images": [
+      172201,
+      459566
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "dev_presence_5",
+    "question": "Does this image contain a remote?",
+    "images": [
+      183571,
+      566998
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "dev_presence_6",
+    "question": "Does this image contain a fire hydrant?",
+    "images": [
+      479195,
+      495852
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "dev_presence_7",
+    "question": "Does this image contain an oven?",
+    "images": [
+      187743,
+      67065
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "dev_presence_8",
+    "question": "Does this image contain a spoon?",
+    "images": [
+      438999,
+      44478
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "dev_presence_9",
+    "question": "Does this image contain a carrot?",
+    "images": [
+      506736,
+      517417
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "dev_presence_10",
+    "question": "Does this image contain a bus?",
+    "images": [
+      430791,
+      370602
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "dev_presence_11",
+    "question": "Does this image contain a person?",
+    "images": [
+      310572,
+      130432
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "dev_counting_0",
+    "question": "How many couches can you see?",
+    "images": [
+      347171,
+      304741
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "dev_counting_1",
+    "question": "How many buses can you see?",
+    "images": [
+      71752,
+      48609
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "dev_counting_2",
+    "question": "How many birds can you see?",
+    "images": [
+      96505,
+      19783
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "dev_counting_3",
+    "question": "How many birds can you see?",
+    "images": [
+      220716,
+      567383
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "dev_counting_4",
+    "question": "How many bicycles can you see?",
+    "images": [
+      412151,
+      390137
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "dev_counting_5",
+    "question": "How many oranges can you see?",
+    "images": [
+      551660,
+      494550
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "dev_counting_6",
+    "question": "How many laptops can you see?",
+    "images": [
+      536403,
+      506311
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "dev_counting_7",
+    "question": "How many skis can you see?",
+    "images": [
+      425790,
+      228580
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "dev_counting_8",
+    "question": "How many sheep can you see?",
+    "images": [
+      178761,
+      503418
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "dev_counting_9",
+    "question": "How many vases can you see?",
+    "images": [
+      536990,
+      341856
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "dev_counting_10",
+    "question": "How many handbags can you see?",
+    "images": [
+      532463,
+      398377
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "dev_counting_11",
+    "question": "How many carrots can you see?",
+    "images": [
+      156302,
+      17152
+    ],
+    "question_ids": []
+  }
+]

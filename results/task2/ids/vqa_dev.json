@@ -1,0 +1,386 @@
+[
+  {
+    "pair_id": "dev_vqa_0",
+    "question": "Are there carrots?",
+    "images": [
+      7991,
+      384486
+    ],
+    "question_ids": [
+      7991002,
+      384486002
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_1",
+    "question": "Is the kid wearing a hat?",
+    "images": [
+      533276,
+      510587
+    ],
+    "question_ids": [
+      533276000,
+      510587000
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_2",
+    "question": "Are the bicycles riding in the road?",
+    "images": [
+      258472,
+      254814
+    ],
+    "question_ids": [
+      258472001,
+      254814008
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_3",
+    "question": "Is this picture in color?",
+    "images": [
+      168032,
+      27648
+    ],
+    "question_ids": [
+      168032000,
+      27648002
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_4",
+    "question": "Is the biker using an umbrella?",
+    "images": [
+      1722,
+      142774
+    ],
+    "question_ids": [
+      1722004,
+      142774052
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_5",
+    "question": "Is this a hotel?",
+    "images": [
+      195894,
+      128014
+    ],
+    "question_ids": [
+      195894002,
+      128014004
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_6",
+    "question": "Is the fridge close to the dining table?",
+    "images": [
+      556025,
+      441415
+    ],
+    "question_ids": [
+      556025000,
+      441415002
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_7",
+    "question": "Is this a beach?",
+    "images": [
+      140908,
+      228541
+    ],
+    "question_ids": [
+      140908004,
+      228541005
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_8",
+    "question": "Is he wearing gloves?",
+    "images": [
+      1700,
+      323668
+    ],
+    "question_ids": [
+      1700005,
+      323668018
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_9",
+    "question": "Is this a dentist-recommended type of treat?",
+    "images": [
+      128476,
+      129765
+    ],
+    "question_ids": [
+      128476001,
+      129765002
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_10",
+    "question": "Is this picture taken outside?",
+    "images": [
+      460373,
+      6306
+    ],
+    "question_ids": [
+      460373002,
+      6306005
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_11",
+    "question": "Do the trees have leaves on them?",
+    "images": [
+      202653,
+      485485
+    ],
+    "question_ids": [
+      202653000,
+      485485011
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_12",
+    "question": "How many animals are there?",
+    "images": [
+      62220,
+      196295
+    ],
+    "question_ids": [
+      62220002,
+      196295005
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_13",
+    "question": "What number is the batter?",
+    "images": [
+      455005,
+      523517
+    ],
+    "question_ids": [
+      455005001,
+      523517009
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_14",
+    "question": "How many rolls of toilet paper is in the photo?",
+    "images": [
+      252610,
+      334015
+    ],
+    "question_ids": [
+      252610001,
+      334015011
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_15",
+    "question": "How many sheep?",
+    "images": [
+      114616,
+      99026
+    ],
+    "question_ids": [
+      114616000,
+      99026002
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_16",
+    "question": "How many cats?",
+    "images": [
+      530913,
+      236162
+    ],
+    "question_ids": [
+      530913001,
+      236162000
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_17",
+    "question": "How many toilet paper rolls are there?",
+    "images": [
+      287560,
+      262386
+    ],
+    "question_ids": [
+      287560004,
+      262386042
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_18",
+    "question": "How many people are in the ski lift?",
+    "images": [
+      387375,
+      76521
+    ],
+    "question_ids": [
+      387375000,
+      76521004
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_19",
+    "question": "What number is on this person's shirt?",
+    "images": [
+      494566,
+      400401
+    ],
+    "question_ids": [
+      494566002,
+      400401005
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_20",
+    "question": "What sport is this?",
+    "images": [
+      295308,
+      284097
+    ],
+    "question_ids": [
+      295308003,
+      284097000
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_21",
+    "question": "What is the name of the store?",
+    "images": [
+      472143,
+      246265
+    ],
+    "question_ids": [
+      472143002,
+      246265006
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_22",
+    "question": "What is in the cup?",
+    "images": [
+      472228,
+      34689
+    ],
+    "question_ids": [
+      472228001,
+      34689003
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_23",
+    "question": "What color are the dishes?",
+    "images": [
+      201426,
+      95336
+    ],
+    "question_ids": [
+      201426003,
+      95336005
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_24",
+    "question": "What color is the bottom of this plane?",
+    "images": [
+      27390,
+      97754
+    ],
+    "question_ids": [
+      27390001,
+      97754004
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_25",
+    "question": "What color is this animal?",
+    "images": [
+      573391,
+      490160
+    ],
+    "question_ids": [
+      573391002,
+      490160004
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_26",
+    "question": "Are these computers for business or pleasure?",
+    "images": [
+      358763,
+      364444
+    ],
+    "question_ids": [
+      358763001,
+      364444001
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_27",
+    "question": "What color shirt is the man wearing?",
+    "images": [
+      297180,
+      487685
+    ],
+    "question_ids": [
+      297180001,
+      487685009
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_28",
+    "question": "What type of animals are looking through the glass?",
+    "images": [
+      423410,
+      381037
+    ],
+    "question_ids": [
+      423410003,
+      381037036
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_29",
+    "question": "Is this a man or a woman?",
+    "images": [
+      419872,
+      397101
+    ],
+    "question_ids": [
+      419872006,
+      397101001
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_30",
+    "question": "What animal is this?",
+    "images": [
+      7149,
+      478517
+    ],
+    "question_ids": [
+      7149001,
+      478517003
+    ]
+  },
+  {
+    "pair_id": "dev_vqa_31",
+    "question": "What is the name of this airline?",
+    "images": [
+      247394,
+      360698
+    ],
+    "question_ids": [
+      247394003,
+      360698000
+    ]
+  }
+]

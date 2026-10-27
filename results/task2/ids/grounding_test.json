@@ -1,0 +1,578 @@
+[
+  {
+    "pair_id": "test_presence_0",
+    "question": "Does this image contain a bicycle?",
+    "images": [
+      441411,
+      407149
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_1",
+    "question": "Does this image contain a parking meter?",
+    "images": [
+      408363,
+      327919
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_2",
+    "question": "Does this image contain a couch?",
+    "images": [
+      20038,
+      47801
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_3",
+    "question": "Does this image contain a chair?",
+    "images": [
+      6397,
+      133
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_4",
+    "question": "Does this image contain a horse?",
+    "images": [
+      127920,
+      292822
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_5",
+    "question": "Does this image contain a snowboard?",
+    "images": [
+      170181,
+      192291
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_6",
+    "question": "Does this image contain a laptop?",
+    "images": [
+      25846,
+      75663
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_7",
+    "question": "Does this image contain a dining table?",
+    "images": [
+      331311,
+      191342
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_8",
+    "question": "Does this image contain a tie?",
+    "images": [
+      31625,
+      481446
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_9",
+    "question": "Does this image contain an oven?",
+    "images": [
+      349321,
+      24430
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_10",
+    "question": "Does this image contain an umbrella?",
+    "images": [
+      467500,
+      305873
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_11",
+    "question": "Does this image contain a zebra?",
+    "images": [
+      452767,
+      224848
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_12",
+    "question": "Does this image contain a cell phone?",
+    "images": [
+      56932,
+      437564
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_13",
+    "question": "Does this image contain a bottle?",
+    "images": [
+      367424,
+      368456
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_14",
+    "question": "Does this image contain a baseball bat?",
+    "images": [
+      30843,
+      563424
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_15",
+    "question": "Does this image contain a cow?",
+    "images": [
+      285235,
+      473468
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_16",
+    "question": "Does this image contain a cake?",
+    "images": [
+      553747,
+      268987
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_17",
+    "question": "Does this image contain an oven?",
+    "images": [
+      425948,
+      142240
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_18",
+    "question": "Does this image contain a vase?",
+    "images": [
+      424792,
+      435205
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_19",
+    "question": "Does this image contain a pizza?",
+    "images": [
+      361238,
+      4229
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_20",
+    "question": "Does this image contain an orange?",
+    "images": [
+      199927,
+      266376
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_21",
+    "question": "Does this image contain a zebra?",
+    "images": [
+      323468,
+      111259
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_22",
+    "question": "Does this image contain a suitcase?",
+    "images": [
+      142815,
+      265151
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_23",
+    "question": "Does this image contain a backpack?",
+    "images": [
+      225495,
+      137028
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_24",
+    "question": "Does this image contain a sandwich?",
+    "images": [
+      491062,
+      415015
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_25",
+    "question": "Does this image contain a hot dog?",
+    "images": [
+      373857,
+      504297
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_26",
+    "question": "Does this image contain a giraffe?",
+    "images": [
+      345139,
+      346265
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_27",
+    "question": "Does this image contain an elephant?",
+    "images": [
+      535156,
+      468022
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_28",
+    "question": "Does this image contain a cell phone?",
+    "images": [
+      488154,
+      182202
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_29",
+    "question": "Does this image contain a fork?",
+    "images": [
+      175539,
+      104669
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_30",
+    "question": "Does this image contain a tv?",
+    "images": [
+      492378,
+      291941
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_presence_31",
+    "question": "Does this image contain a kite?",
+    "images": [
+      272658,
+      82847
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_0",
+    "question": "How many apples can you see?",
+    "images": [
+      577451,
+      539777
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_1",
+    "question": "How many suitcases can you see?",
+    "images": [
+      254004,
+      457226
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_2",
+    "question": "How many cars can you see?",
+    "images": [
+      88021,
+      68093
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_3",
+    "question": "How many traffic lights can you see?",
+    "images": [
+      289222,
+      76417
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_4",
+    "question": "How many parking meters can you see?",
+    "images": [
+      147866,
+      330522
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_5",
+    "question": "How many books can you see?",
+    "images": [
+      154202,
+      379842
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_6",
+    "question": "How many bears can you see?",
+    "images": [
+      502084,
+      8401
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_7",
+    "question": "How many sheep can you see?",
+    "images": [
+      65239,
+      278353
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_8",
+    "question": "How many people can you see?",
+    "images": [
+      262594,
+      477598
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_9",
+    "question": "How many pizzas can you see?",
+    "images": [
+      46732,
+      161772
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_10",
+    "question": "How many ovens can you see?",
+    "images": [
+      378311,
+      159598
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_11",
+    "question": "How many sandwiches can you see?",
+    "images": [
+      267035,
+      43944
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_12",
+    "question": "How many baseball bats can you see?",
+    "images": [
+      395606,
+      125404
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_13",
+    "question": "How many books can you see?",
+    "images": [
+      546792,
+      55155
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_14",
+    "question": "How many fire hydrants can you see?",
+    "images": [
+      59108,
+      97868
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_15",
+    "question": "How many sheep can you see?",
+    "images": [
+      546980,
+      477085
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_16",
+    "question": "How many bicycles can you see?",
+    "images": [
+      234387,
+      28714
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_17",
+    "question": "How many keyboards can you see?",
+    "images": [
+      61034,
+      49258
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_18",
+    "question": "How many broccoli can you see?",
+    "images": [
+      223587,
+      96440
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_19",
+    "question": "How many sheep can you see?",
+    "images": [
+      157170,
+      500477
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_20",
+    "question": "How many teddy bears can you see?",
+    "images": [
+      474039,
+      128506
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_21",
+    "question": "How many chairs can you see?",
+    "images": [
+      34757,
+      575970
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_22",
+    "question": "How many sports balls can you see?",
+    "images": [
+      492723,
+      5934
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_23",
+    "question": "How many boats can you see?",
+    "images": [
+      65375,
+      190140
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_24",
+    "question": "How many chairs can you see?",
+    "images": [
+      222228,
+      73622
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_25",
+    "question": "How many couches can you see?",
+    "images": [
+      503412,
+      200047
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_26",
+    "question": "How many clocks can you see?",
+    "images": [
+      267598,
+      196594
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_27",
+    "question": "How many oranges can you see?",
+    "images": [
+      475195,
+      386277
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_28",
+    "question": "How many bowls can you see?",
+    "images": [
+      5600,
+      211177
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_29",
+    "question": "How many keyboards can you see?",
+    "images": [
+      455299,
+      297426
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_30",
+    "question": "How many knives can you see?",
+    "images": [
+      569333,
+      573796
+    ],
+    "question_ids": []
+  },
+  {
+    "pair_id": "test_counting_31",
+    "question": "How many stop signs can you see?",
+    "images": [
+      348379,
+      100283
+    ],
+    "question_ids": []
+  }
+]
