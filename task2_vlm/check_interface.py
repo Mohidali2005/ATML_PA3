@@ -39,13 +39,18 @@ def main():
         processor = AutoImageProcessor.from_pretrained(cfg["encoder"])
         encoder = SiglipVisionModel.from_pretrained(cfg["encoder"]).eval()
         pixels = processor(images=[fetch_image(k) for k in list(store.index)[:2]],return_tensors="pt")["pixel_values"]
+        body = encoder.vision_model
         with torch.no_grad():
-            out = encoder(pixel_values=pixels,output_hidden_states=True)
-            once = encoder.vision_model.post_layernorm(out.hidden_states[-1])
-        checks["layer_norm_once_error"] = (out.last_hidden_state-once).abs().max().item()
-        checks["raw_vs_normed_difference"] = (out.hidden_states[-1]-out.last_hidden_state).abs().mean().item()
-        assert checks["layer_norm_once_error"] < 1e-4 and checks["raw_vs_normed_difference"] > 1e-2
-        checks["patch_grid"] = [int(out.last_hidden_state.shape[1]**0.5)]*2
+            last = encoder(pixel_values=pixels).last_hidden_state
+            raw = body.encoder(inputs_embeds=body.embeddings(pixels)).last_hidden_state
+            once = body.post_layernorm(raw)
+            twice = body.post_layernorm(last)
+        checks["layer_norm_once_error"] = (last-once).abs().max().item()
+        checks["unnormalized_difference"] = (raw-last).abs().mean().item()
+        checks["second_norm_difference"] = (twice-last).abs().mean().item()
+        assert checks["layer_norm_once_error"] < 1e-4 and checks["unnormalized_difference"] > 1e-2 and checks["second_norm_difference"] > 1e-2
+        checks["patch_grid"] = [int(last.shape[1]**0.5)]*2
+        checks["cached_vs_fresh_mean_error"] = (features.float()-last).abs().mean().item()
         del encoder
 
     # listing which parameters train in each stage
