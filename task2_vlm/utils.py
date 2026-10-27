@@ -1,10 +1,12 @@
 import io
-import urllib.request
 from collections import Counter
 
 import numpy as np
+import requests
 import torch
 from PIL import Image
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 from transformers import AutoConfig,AutoModelForCausalLM,AutoTokenizer
 
 from common.utils import load_json,read_jsonl,repo_path
@@ -15,6 +17,8 @@ USE_AMP = DEVICE == "cuda"
 VISION_START = "<|vision_start|>"
 IMAGE_PAD = "<|image_pad|>"
 VISION_END = "<|vision_end|>"
+SESSION = requests.Session()
+SESSION.mount("http://",HTTPAdapter(max_retries=Retry(total=6,backoff_factor=1,status_forcelist=[429,500,502,503,504]),pool_maxsize=32))
 SUITES = ["captions_train","captions_dev","presence_pool","counting_pool","vqa_train","grounding_dev","grounding_test","vqa_dev","vqa_test"]
 
 
@@ -55,9 +59,10 @@ def image_url(key):
 
 
 def fetch_image(key):
-    """Download one image as an rgb picture"""
-    with urllib.request.urlopen(image_url(key),timeout=60) as f:
-        return Image.open(io.BytesIO(f.read())).convert("RGB")
+    """Download one image as an rgb picture and retry when the connection drops"""
+    response = SESSION.get(image_url(key),timeout=60)
+    response.raise_for_status()
+    return Image.open(io.BytesIO(response.content)).convert("RGB")
 
 
 class FeatureStore:

@@ -5,3 +5,5 @@ accelerate
 pyyaml
 pandas
 matplotlib
+requests
+pillow

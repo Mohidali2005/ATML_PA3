@@ -66,5 +66,7 @@ python -m task2_vlm.analyze
 
 `inspect_labels` writes contact sheets of a random sample of grounding evaluation images for a manual label
 check. After the labels are filled into the csv, `python -m task2_vlm.inspect_labels --summarize` records the
-outcome. `scripts/run_task2_data.sh` and `scripts/run_task2_train.sh` chain the steps. Add `--resume` to the
-training command to continue from the latest checkpoint. `configs/task2.yaml` holds every hyperparameter.
+outcome. `scripts/run_task2_all.sh <scratch folder> <weights folder>` runs every step from data selection to the
+final figures in one go. It first runs a very short pass over the real models and then the full training. Add
+`--resume` to the training command to continue from the latest checkpoint. `configs/task2.yaml` holds every
+hyperparameter.
