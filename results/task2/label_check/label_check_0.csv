@@ -1,0 +1,41 @@
+check_id,pair_id,image,kind,category,question,answer,label_ok
+0,dev_presence_0,val2014_353028,presence,keyboard,Does this image contain a keyboard?,no,ok
+1,dev_presence_0,val2014_39852,presence,keyboard,Does this image contain a keyboard?,yes,ok
+2,dev_presence_1,val2014_258402,presence,teddy bear,Does this image contain a teddy bear?,no,ok
+3,dev_counting_0,val2014_347171,counting,couch,How many couches can you see?,4,ok
+4,dev_counting_0,val2014_304741,counting,couch,How many couches can you see?,1,ok
+5,dev_counting_3,val2014_220716,counting,bird,How many birds can you see?,1,ok
+6,dev_counting_4,val2014_390137,counting,bicycle,How many bicycles can you see?,2,ok
+7,dev_counting_5,val2014_494550,counting,orange,How many oranges can you see?,2,ok
+8,dev_counting_7,val2014_425790,counting,skis,How many skis can you see?,4,ok
+9,dev_counting_10,val2014_532463,counting,handbag,How many handbags can you see?,4,ok
+10,test_presence_1,val2014_327919,presence,parking meter,Does this image contain a parking meter?,no,ok
+11,test_presence_4,val2014_292822,presence,horse,Does this image contain a horse?,no,ok
+12,test_presence_6,val2014_75663,presence,laptop,Does this image contain a laptop?,no,ok
+13,test_presence_7,val2014_191342,presence,dining table,Does this image contain a dining table?,yes,ok
+14,test_presence_8,val2014_481446,presence,tie,Does this image contain a tie?,yes,ok
+15,test_presence_13,val2014_367424,presence,bottle,Does this image contain a bottle?,yes,ok
+16,test_presence_18,val2014_435205,presence,vase,Does this image contain a vase?,no,ok
+17,test_presence_19,val2014_4229,presence,pizza,Does this image contain a pizza?,no,ok
+18,test_presence_20,val2014_266376,presence,orange,Does this image contain an orange?,no,ok
+19,test_presence_22,val2014_265151,presence,suitcase,Does this image contain a suitcase?,yes,ok
+20,test_presence_23,val2014_137028,presence,backpack,Does this image contain a backpack?,yes,ok
+21,test_presence_25,val2014_373857,presence,hot dog,Does this image contain a hot dog?,no,ok
+22,test_presence_26,val2014_345139,presence,giraffe,Does this image contain a giraffe?,no,ok
+23,test_presence_27,val2014_535156,presence,elephant,Does this image contain an elephant?,yes,ok
+24,test_presence_28,val2014_488154,presence,cell phone,Does this image contain a cell phone?,no,ok
+25,test_counting_1,val2014_254004,counting,suitcase,How many suitcases can you see?,3,ok
+26,test_counting_4,val2014_147866,counting,parking meter,How many parking meters can you see?,3,ok
+27,test_counting_8,val2014_477598,counting,person,How many people can you see?,1,ok
+28,test_counting_9,val2014_161772,counting,pizza,How many pizzas can you see?,2,ok
+29,test_counting_10,val2014_159598,counting,oven,How many ovens can you see?,3,ok
+30,test_counting_12,val2014_395606,counting,baseball bat,How many baseball bats can you see?,1,ok
+31,test_counting_13,val2014_55155,counting,book,How many books can you see?,1,ok
+32,test_counting_14,val2014_97868,counting,fire hydrant,How many fire hydrants can you see?,1,ok
+33,test_counting_15,val2014_546980,counting,sheep,How many sheep can you see?,1,ok
+34,test_counting_16,val2014_234387,counting,bicycle,How many bicycles can you see?,3,ok
+35,test_counting_19,val2014_157170,counting,sheep,How many sheep can you see?,4,ok
+36,test_counting_22,val2014_492723,counting,sports ball,How many sports balls can you see?,2,ok
+37,test_counting_23,val2014_190140,counting,boat,How many boats can you see?,2,ok
+38,test_counting_26,val2014_196594,counting,clock,How many clocks can you see?,3,ok
+39,test_counting_28,val2014_5600,counting,bowl,How many bowls can you see?,2,ok
