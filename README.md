@@ -3,7 +3,7 @@
 Code for the three tasks of programming assignment 3 (EE-5102 / CS-6304): LLM fine-tuning,
 vision-language models and test-time compute. Everything uses seed 6304.
 
-Tasks 1 and 2 are implemented so far.
+All three tasks are implemented.
 
 ## Setup
 
@@ -70,3 +70,36 @@ outcome. `scripts/run_task2_all.sh <scratch folder> <weights folder>` runs every
 final figures in one go. It first runs a very short pass over the real models and then the full training. Add
 `--resume` to the training command to continue from the latest checkpoint. `configs/task2.yaml` holds every
 hyperparameter.
+
+## Task 3: test-time compute (selection, refinement and adaptive sampling)
+
+The offline experiments use 32 supplied rollouts per question from Qwen2.5-3B-Instruct on a 1,000 question
+MATH subset and from Qwen2.5-VL-3B-Instruct on MathVista testmini. They compare repeated sampling selection rules
+(first answer, self consistency, highest mean log probability, highest self certainty, rank weighted consensus,
+and for MathVista visual engagement, VisConf and a tokenwise fusion), study what the signals capture, and simulate
+adaptive stopping with thresholds chosen on a 200 question development split and applied to the other 800
+questions. A small live experiment on 50 MATH questions compares one long response, three short responses with
+a vote and one response followed by a self review, all within the same 3,072 token output allowance.
+
+Answers are grouped and graded with `math-verify` (MATH) and the MathVista answer type, choice and precision rules
+from the released question metadata. The rollout files and `testmini.json` are not in the repository. Put the
+two rollout folders in `data/task3/raw/qwen25-math` and `data/task3/raw/qwen25vl-mathvista` and the metadata in
+`data/task3/raw/testmini.json`. The splits, rollout orders and live question IDs are in `results/task3/ids/`.
+
+Run the steps from the repository root, in this order:
+
+```
+python -m task3_ttc.prepare_data
+python -m task3_ttc.evaluate_offline
+python -m task3_ttc.signals
+python -m task3_ttc.adaptive
+bash scripts/run_task3_live.sh <live folder>
+python -m task3_ttc.live_analyze --live-dir <live folder>
+python -m task3_ttc.analyze
+python -m task3_ttc.check_results
+```
+
+The live generation needs a GPU (FP16, batch size 1, one response at a time) and writes every call to
+`calls.jsonl` so that an interrupted run continues where it stopped. `configs/task3.yaml` holds every setting.
+`check_results` asserts consistency checks across the saved tables.
+
