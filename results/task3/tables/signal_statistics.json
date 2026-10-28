@@ -1,0 +1,38 @@
+{
+  "math": {},
+  "mathvista": {
+    "confidence_vision_correlation": {
+      "mean": -0.20934390581237872,
+      "median": -0.21048683229023718,
+      "negative_share": 0.8925,
+      "quantiles": [
+        -0.46310478689304946,
+        -0.30426889695727405,
+        -0.09263065342124281,
+        0.06172141394428919
+      ],
+      "questions": 800
+    },
+    "covariance_identity_max_error": 4.540544121245382e-09,
+    "visconf_versus_tokenwise": {
+      "mean_rank_correlation": 0.9171034399620678,
+      "same_top_rollout_share": 0.67
+    }
+  },
+  "trajectories": {
+    "disagree": {
+      "question": "99",
+      "selfcert_rollout": 14,
+      "visconf_rollout": 1,
+      "selfcert_correct": false,
+      "visconf_correct": true
+    },
+    "agree": {
+      "question": "601",
+      "selfcert_rollout": 9,
+      "visconf_rollout": 9,
+      "selfcert_correct": true,
+      "visconf_correct": true
+    }
+  }
+}

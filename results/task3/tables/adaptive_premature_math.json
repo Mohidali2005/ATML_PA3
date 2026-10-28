@@ -1,0 +1,24 @@
+{
+  "Agreement": {
+    "question": "test:3504",
+    "order": 0,
+    "stop_at": 4,
+    "candidates": [
+      9,
+      20,
+      2,
+      4
+    ]
+  },
+  "Quality aware": {
+    "question": "test:3504",
+    "order": 0,
+    "stop_at": 4,
+    "candidates": [
+      9,
+      20,
+      2,
+      4
+    ]
+  }
+}

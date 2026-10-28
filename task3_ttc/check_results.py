@@ -20,7 +20,7 @@ def check_selection_rules():
 
 def check_dataset(cfg,name,results):
     """Consistency of the saved evaluation tables with each other and with the raw arrays"""
-    table = pd.read_csv(results/"eval"/f"{name}_per_question.csv")
+    table = pd.read_csv(results/"eval"/f"{name}_per_question.csv",dtype={"question":str})
     first = table[table.N == 1].pivot(index="question",columns="method",values="accuracy")
     assert np.allclose(first.sub(first["FirstAns"],axis=0).abs().max().max(),0),"methods differ at one candidate"
     for method,part in table.groupby("method"):

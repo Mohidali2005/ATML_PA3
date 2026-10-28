@@ -1,0 +1,16 @@
+{
+  "Agreement": {
+    "tau": 0.5,
+    "gamma": null,
+    "development_accuracy": 81.75,
+    "development_cost": 4979.2915,
+    "fixed_32_accuracy": 82.5
+  },
+  "Quality aware": {
+    "tau": 0.5,
+    "gamma": 0.0,
+    "development_accuracy": 82.1,
+    "development_cost": 5462.4305,
+    "fixed_32_accuracy": 82.5
+  }
+}

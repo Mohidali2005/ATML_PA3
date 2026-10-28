@@ -76,6 +76,7 @@ def analyze_dataset(cfg,name,evaluation):
     quartiles = []
     for signal,pairs in gaps.items():
         pairs = np.array(pairs)
+        pairs = 100*pairs
         difference = pairs[:,0]-pairs[:,1]
         mean_all,low,high = bootstrap_mean(difference,cfg["bootstrap_samples"],cfg["seed"])
         quartiles.append((name,signal,mean_all,low,high,difference[mixed].mean(),int(mixed.sum()),pairs[:,0].mean(),pairs[:,1].mean()))

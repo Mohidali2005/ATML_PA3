@@ -1,0 +1,5 @@
+dataset,policy,early_stop_share,wrong_early_stop_share,wrong_but_fixed_32_correct_share,wrong_early_stops,recovered_by_fixed_32
+math,Agreement,0.86575,0.17225,0.025,1378.0,200.0
+math,Quality aware,0.83975,0.14675,0.01725,1174.0,138.0
+mathvista,Agreement,0.68475,0.139625,0.017625,1117.0,141.0
+mathvista,Quality aware,0.74275,0.16925,0.0225,1354.0,180.0

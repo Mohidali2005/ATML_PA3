@@ -1,0 +1,31 @@
+{
+  "math_verify_version": "0.9.0",
+  "no_answer_label": "NO_ANSWER",
+  "math": {
+    "questions": 1000,
+    "rows": 32000,
+    "retained_tokens": 20742094,
+    "zero_length_rollouts": 0,
+    "capped_rollouts": 523,
+    "null_extractions": 521,
+    "question_text_differences": 0,
+    "math_verify_timeouts": 49,
+    "no_answer_rollouts": 521,
+    "mean_distinct_groups": 5.488,
+    "mean_accuracy": 0.6631875,
+    "oracle_coverage": 0.919
+  },
+  "mathvista": {
+    "questions": 1000,
+    "rows": 32000,
+    "retained_tokens": 8961703,
+    "zero_length_rollouts": 0,
+    "capped_rollouts": 487,
+    "null_extractions": 3032,
+    "zero_attention_denominators": 0,
+    "no_answer_rollouts": 3032,
+    "mean_distinct_groups": 4.389,
+    "mean_accuracy": 0.5419375,
+    "oracle_coverage": 0.899
+  }
+}

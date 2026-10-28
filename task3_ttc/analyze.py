@@ -90,7 +90,7 @@ def signal_figure(quartiles,results,figures):
     for ax,name in zip(axes[:2],NAMES):
         data = quartiles[quartiles.dataset == name]
         x = np.arange(len(data))
-        ax.bar(x,data.gap_all*100,color="steelblue",yerr=[(data.gap_all-data.low)*100,(data.high-data.gap_all)*100],capsize=3)
+        ax.bar(x,data.gap_all,color="steelblue",yerr=[data.gap_all-data.low,data.high-data.gap_all],capsize=3)
         ax.axhline(0,color="black",linewidth=0.8)
         ax.set_xticks(x)
         ax.set_xticklabels(data.signal,rotation=35,ha="right",fontsize=10)
@@ -134,9 +134,10 @@ def trajectory_figure(cfg,results,figures):
         ax.set_xlabel("Generated token",fontsize=11)
         ax.grid(alpha=0.25)
         ax.tick_params(labelsize=10)
-    axes[0].set_ylabel(f"Value, moving average",fontsize=11)
-    axes[0].legend(loc="upper right",fontsize=10,frameon=False)
-    fig.tight_layout()
+    axes[0].set_ylabel("Value, moving average",fontsize=11)
+    handles,labels = axes[0].get_legend_handles_labels()
+    fig.legend(handles,labels,loc="lower center",ncol=2,fontsize=11,frameon=False)
+    fig.tight_layout(rect=(0,0.07,1,1))
     fig.savefig(figures/"trajectories.png",dpi=150)
     plt.close(fig)
 
@@ -148,7 +149,9 @@ def adaptive_figure(comparison,adaptive,figures):
         sc = comparison[(comparison.dataset == name) & (comparison.method == "SC") & (comparison.N >= 4)]
         row[0].plot(sc.cost,sc.accuracy,marker="o",color="black",label="Fixed N self consistency")
         for n,x,y in zip(sc.N,sc.cost,sc.accuracy):
-            row[0].annotate(f"N={n}",(x,y),textcoords="offset points",xytext=(6,-12),fontsize=10)
+            last = n == 32
+            row[0].annotate(f"N={n}",(x,y),textcoords="offset points",xytext=(-8 if last else 8,-14),ha="right" if last else "left",fontsize=10)
+        row[0].margins(x=0.08,y=0.14)
         part = adaptive[adaptive.dataset == name]
         for family,color,marker in (("Agreement","darkorange","*"),("Quality aware","firebrick","D")):
             point = part[part.policy == family].iloc[0]
