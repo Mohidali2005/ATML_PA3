@@ -7,3 +7,6 @@ pandas
 matplotlib
 requests
 pillow
+pyarrow
+scipy
+math-verify==0.9.0

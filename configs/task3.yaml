@@ -1,0 +1,44 @@
+seed: 6304
+
+paths:
+  raw_dir: data/task3/raw
+  processed_dir: data/task3/processed
+  results_dir: results/task3
+
+datasets:
+  math: {folder: qwen25-math,model: Qwen/Qwen2.5-3B-Instruct,questions: 1000}
+  mathvista: {folder: qwen25vl-mathvista,model: Qwen/Qwen2.5-VL-3B-Instruct,questions: 1000}
+
+rollouts_per_question: 32
+budgets: [1,2,4,8,16,32]
+num_orders: 10
+dev_questions: 200
+live_questions: 50
+bootstrap_samples: 1000
+
+visconf: {low_percentile: 5,high_percentile: 95,epsilon: 1.0e-8}
+
+adaptive:
+  check_points: [4,8,16]
+  tau: [0.5,0.625,0.75,0.875,1.0]
+  gamma: [0.0,0.1,0.25,0.5]
+  tolerance: 0.01
+
+math_source:
+  dataset: DigitalLearningGmbH/MATH-lighteval
+  revision: 0530c78699ea5e8eb5530600900e1f328b48acad
+
+live:
+  model: Qwen/Qwen2.5-3B-Instruct
+  revision: aa8e72537993ba99e69dfaafa59ed015b17504d1
+  system_message: You are a helpful assistant.
+  instruction: "Think step by step inside <think> </think> tags, then give your final answer inside \\boxed{}."
+  review_instruction: "Review the solution above. Identify and correct any errors; if it is correct, retain its answer. Give your final answer inside \\boxed{}."
+  temperature: 0.7
+  top_p: 0.8
+  top_k: 20
+  repetition_penalty: 1.0
+  single_tokens: 3072
+  parallel_tokens: 1024
+  parallel_responses: 3
+  revision_tokens: 2048
