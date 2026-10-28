@@ -1,0 +1,536 @@
+[
+  {
+    "update": 0,
+    "stage": "start",
+    "caption_loss": 5.3597453112403555,
+    "grounding_dev": {
+      "nll": {
+        "correct": 10.36165680984656,
+        "swap": 10.511518471253416,
+        "none": 4.598321303725243
+      },
+      "delta_nll": 0.14986166140685597
+    },
+    "vqa_dev": {
+      "nll": {
+        "correct": 10.598621115088463,
+        "swap": 10.937757316976786,
+        "none": 5.281235660659149
+      },
+      "delta_nll": 0.33913620188832283
+    }
+  },
+  {
+    "update": 500,
+    "stage": "caption",
+    "caption_loss": 2.374591409539183,
+    "grounding_dev": {
+      "nll": {
+        "correct": 2.36900403474768,
+        "swap": 2.893418110907078,
+        "none": 4.598321303725243
+      },
+      "delta_nll": 0.5244140761593976
+    },
+    "vqa_dev": {
+      "nll": {
+        "correct": 3.3992441864684224,
+        "swap": 3.770706942304969,
+        "none": 5.281235660659149
+      },
+      "delta_nll": 0.3714627558365464
+    }
+  },
+  {
+    "update": 1000,
+    "stage": "caption",
+    "caption_loss": 2.2722260585675635,
+    "grounding_dev": {
+      "nll": {
+        "correct": 2.7140374208490052,
+        "swap": 3.3279697274168334,
+        "none": 4.598321303725243
+      },
+      "delta_nll": 0.6139323065678282
+    },
+    "vqa_dev": {
+      "nll": {
+        "correct": 3.8303645066916943,
+        "swap": 4.257966607809067,
+        "none": 5.281235660659149
+      },
+      "delta_nll": 0.4276021011173725
+    }
+  },
+  {
+    "update": 1500,
+    "stage": "caption",
+    "caption_loss": 2.219595373297731,
+    "grounding_dev": {
+      "nll": {
+        "correct": 3.22908678650856,
+        "swap": 3.9470229720075927,
+        "none": 4.598321303725243
+      },
+      "delta_nll": 0.7179361854990325
+    },
+    "vqa_dev": {
+      "nll": {
+        "correct": 4.329176200553775,
+        "swap": 4.856904096901417,
+        "none": 5.281235660659149
+      },
+      "delta_nll": 0.527727896347642
+    }
+  },
+  {
+    "update": 2000,
+    "stage": "caption",
+    "caption_loss": 2.176274728650848,
+    "grounding_dev": {
+      "nll": {
+        "correct": 2.997970456878344,
+        "swap": 3.7609913075963655,
+        "none": 4.598321303725243
+      },
+      "delta_nll": 0.7630208507180214
+    },
+    "vqa_dev": {
+      "nll": {
+        "correct": 4.363151738420129,
+        "swap": 4.9205544497817755,
+        "none": 5.281235660659149
+      },
+      "delta_nll": 0.5574027113616467
+    }
+  },
+  {
+    "update": 2250,
+    "stage": "caption",
+    "caption_loss": 2.1662285262718797,
+    "grounding_dev": {
+      "nll": {
+        "correct": 3.055730519195398,
+        "swap": 3.8716484755277634,
+        "none": 4.598321303725243
+      },
+      "delta_nll": 0.8159179563323655,
+      "accuracy": {
+        "correct": 0.020833333333333332,
+        "swap": 0.0,
+        "mismatch": 0.0,
+        "none": 0.041666666666666664
+      }
+    },
+    "vqa_dev": {
+      "nll": {
+        "correct": 4.3891502395272255,
+        "swap": 4.973692271858454,
+        "none": 5.281235660659149
+      },
+      "delta_nll": 0.5845420323312283,
+      "accuracy": {
+        "correct": 0.024999999999999998,
+        "swap": 0.015625,
+        "mismatch": 0.0,
+        "none": 0.0875
+      }
+    },
+    "captions": [
+      {
+        "image": "val2014_185988",
+        "reference": "A man dressed in everyday clothes swinging a racket at a tennis ball",
+        "generated": "A man is playing tennis on a tennis court."
+      },
+      {
+        "image": "val2014_316123",
+        "reference": "A group of boys playing a soccer in the park.",
+        "generated": "A group of young boys playing soccer in a park."
+      },
+      {
+        "image": "val2014_414379",
+        "reference": "A street scene of the intersection with people and cars.",
+        "generated": "A group of people on a street with cars and motorcycles."
+      },
+      {
+        "image": "val2014_393277",
+        "reference": "A clock tower in a European city looks down at the traffic below.",
+        "generated": "A car is parked on the side of a clock tower."
+      },
+      {
+        "image": "val2014_105912",
+        "reference": "A WOMAN IS STANDIG ON THE PAVEMENT LOOKING",
+        "generated": "A red fire hydrant with a red sign on it."
+      },
+      {
+        "image": "val2014_335810",
+        "reference": "A plate is piled high of orange slices while a bunch of bananas sits next to it.",
+        "generated": "A plate of oranges and bananas is on a table."
+      },
+      {
+        "image": "val2014_455448",
+        "reference": "Holding a chocolate cupcake with colored sprinkles still in the paper cup.",
+        "generated": "A person holding a chocolate doughnut with a lot of candies on it."
+      },
+      {
+        "image": "val2014_520389",
+        "reference": "A cat laying on a purse on the floor",
+        "generated": "A cat is sitting on a table with a bag."
+      },
+      {
+        "image": "val2014_357096",
+        "reference": "A young child plunging a toilet with a plunger.",
+        "generated": "A little girl is standing in front of a toilet."
+      },
+      {
+        "image": "val2014_47898",
+        "reference": "The sun sets on a rustic backcountry setting.",
+        "generated": "A view of a river with a lot of trees and buildings."
+      },
+      {
+        "image": "val2014_98322",
+        "reference": "a man, women and two children preparing to ski.",
+        "generated": "A group of people playing in the snow."
+      },
+      {
+        "image": "val2014_368442",
+        "reference": "this is a giraffe standing in the middle of grass",
+        "generated": "A group of giraffes and a few cows in a zoo."
+      },
+      {
+        "image": "val2014_49682",
+        "reference": "A woman with a box of chicken has an umbrella hat.",
+        "generated": "A man holding a white umbrella and a white box of food."
+      },
+      {
+        "image": "val2014_421999",
+        "reference": "A zebras rump is up close for a photo.",
+        "generated": "A zebra standing in a dirt field next to a tree."
+      },
+      {
+        "image": "val2014_499143",
+        "reference": "A woman jumping a horse over a pipe.",
+        "generated": "A woman riding a horse in a barn."
+      },
+      {
+        "image": "val2014_310516",
+        "reference": "A FLOCK OF BIRDS ARE FLYING OVER THE OCEAN",
+        "generated": "A group of birds flying in the sky over a beach."
+      }
+    ]
+  },
+  {
+    "update": 2500,
+    "stage": "instruction",
+    "caption_loss": 2.2054849176978073,
+    "grounding_dev": {
+      "nll": {
+        "correct": 0.829386241657024,
+        "swap": 5.057901846865813,
+        "none": 1.5258628690304856
+      },
+      "delta_nll": 4.2285156052087896
+    },
+    "vqa_dev": {
+      "nll": {
+        "correct": 2.630622289403618,
+        "swap": 4.068529612650309,
+        "none": 3.3826560247689486
+      },
+      "delta_nll": 1.4379073232466908
+    }
+  },
+  {
+    "update": 3000,
+    "stage": "instruction",
+    "caption_loss": 2.186877833058437,
+    "grounding_dev": {
+      "nll": {
+        "correct": 1.1188342220824172,
+        "swap": 6.290058160045494,
+        "none": 1.5630616642689954
+      },
+      "delta_nll": 5.171223937963077
+    },
+    "vqa_dev": {
+      "nll": {
+        "correct": 2.94021026871269,
+        "swap": 4.527415798555012,
+        "none": 3.490858371311333
+      },
+      "delta_nll": 1.587205529842322
+    }
+  },
+  {
+    "update": 3500,
+    "stage": "instruction",
+    "caption_loss": 2.183477818655471,
+    "grounding_dev": {
+      "nll": {
+        "correct": 1.1704938032483672,
+        "swap": 6.672446871215167,
+        "none": 1.5789527598923694
+      },
+      "delta_nll": 5.5019530679668005
+    },
+    "vqa_dev": {
+      "nll": {
+        "correct": 2.9960466222537434,
+        "swap": 4.652349545827747,
+        "none": 3.4789443855988793
+      },
+      "delta_nll": 1.6563029235740032
+    }
+  },
+  {
+    "update": 3750,
+    "stage": "instruction",
+    "caption_loss": 2.179610931004087,
+    "grounding_dev": {
+      "nll": {
+        "correct": 1.3237335499852634,
+        "swap": 7.025556444277754,
+        "none": 1.5924219656347607
+      },
+      "delta_nll": 5.701822894292491,
+      "accuracy": {
+        "correct": 0.7708333333333334,
+        "swap": 0.10416666666666667,
+        "mismatch": 0.4166666666666667,
+        "none": 0.4166666666666667
+      }
+    },
+    "vqa_dev": {
+      "nll": {
+        "correct": 3.1084312547445734,
+        "swap": 4.801842700293491,
+        "none": 3.503573083842639
+      },
+      "delta_nll": 1.693411445548918,
+      "accuracy": {
+        "correct": 0.49374999999999997,
+        "swap": 0.27499999999999997,
+        "mismatch": 0.28125,
+        "none": 0.2984375
+      }
+    },
+    "captions": [
+      {
+        "image": "val2014_185988",
+        "reference": "A man dressed in everyday clothes swinging a racket at a tennis ball",
+        "generated": "A man is playing tennis on a tennis court."
+      },
+      {
+        "image": "val2014_316123",
+        "reference": "A group of boys playing a soccer in the park.",
+        "generated": "A group of young boys playing soccer in a park."
+      },
+      {
+        "image": "val2014_414379",
+        "reference": "A street scene of the intersection with people and cars.",
+        "generated": "A group of people on a street with a motorcycle parked."
+      },
+      {
+        "image": "val2014_393277",
+        "reference": "A clock tower in a European city looks down at the traffic below.",
+        "generated": "A car is parked on the side of a clock tower."
+      },
+      {
+        "image": "val2014_105912",
+        "reference": "A WOMAN IS STANDIG ON THE PAVEMENT LOOKING",
+        "generated": "A red fire hydrant with a pole on it."
+      },
+      {
+        "image": "val2014_335810",
+        "reference": "A plate is piled high of orange slices while a bunch of bananas sits next to it.",
+        "generated": "A plate of oranges and bananas on a table."
+      },
+      {
+        "image": "val2014_455448",
+        "reference": "Holding a chocolate cupcake with colored sprinkles still in the paper cup.",
+        "generated": "A person holding a chocolate doughnut with a lot of candies on it."
+      },
+      {
+        "image": "val2014_520389",
+        "reference": "A cat laying on a purse on the floor",
+        "generated": "A cat sitting on a couch with a purse."
+      },
+      {
+        "image": "val2014_357096",
+        "reference": "A young child plunging a toilet with a plunger.",
+        "generated": "A little girl is standing in front of a toilet."
+      },
+      {
+        "image": "val2014_47898",
+        "reference": "The sun sets on a rustic backcountry setting.",
+        "generated": "A view of a river with a lot of trees and buildings."
+      },
+      {
+        "image": "val2014_98322",
+        "reference": "a man, women and two children preparing to ski.",
+        "generated": "A group of people sitting on a snowy hill."
+      },
+      {
+        "image": "val2014_368442",
+        "reference": "this is a giraffe standing in the middle of grass",
+        "generated": "A giraffe and two cows in a zoo."
+      },
+      {
+        "image": "val2014_49682",
+        "reference": "A woman with a box of chicken has an umbrella hat.",
+        "generated": "A man holding an umbrella and a food item."
+      },
+      {
+        "image": "val2014_421999",
+        "reference": "A zebras rump is up close for a photo.",
+        "generated": "A zebra standing in a dirt field next to a tree."
+      },
+      {
+        "image": "val2014_499143",
+        "reference": "A woman jumping a horse over a pipe.",
+        "generated": "A woman riding a horse in a barn."
+      },
+      {
+        "image": "val2014_310516",
+        "reference": "A FLOCK OF BIRDS ARE FLYING OVER THE OCEAN",
+        "generated": "A group of birds flying in the sky over the ocean."
+      }
+    ]
+  },
+  {
+    "update": 4000,
+    "stage": "natural",
+    "caption_loss": 2.1828171461820602,
+    "grounding_dev": {
+      "nll": {
+        "correct": 0.6719560874747307,
+        "swap": 3.674234722430507,
+        "none": 1.3213069230938952
+      },
+      "delta_nll": 3.0022786349557764
+    },
+    "vqa_dev": {
+      "nll": {
+        "correct": 1.707058354106266,
+        "swap": 2.795318575343117,
+        "none": 2.8282302251900546
+      },
+      "delta_nll": 1.088260221236851
+    }
+  },
+  {
+    "update": 4500,
+    "stage": "natural",
+    "caption_loss": 2.1874513681977987,
+    "grounding_dev": {
+      "nll": {
+        "correct": 0.7490068969273125,
+        "swap": 4.526676161214709,
+        "none": 1.3326461031101644
+      },
+      "delta_nll": 3.777669264287397,
+      "accuracy": {
+        "correct": 0.8125,
+        "swap": 0.041666666666666664,
+        "mismatch": 0.4166666666666667,
+        "none": 0.3958333333333333
+      }
+    },
+    "vqa_dev": {
+      "nll": {
+        "correct": 1.6691649223248533,
+        "swap": 3.036591789656086,
+        "none": 2.7847665383596905
+      },
+      "delta_nll": 1.3674268673312326,
+      "accuracy": {
+        "correct": 0.5890625,
+        "swap": 0.23437499999999997,
+        "mismatch": 0.25468749999999996,
+        "none": 0.328125
+      }
+    },
+    "captions": [
+      {
+        "image": "val2014_185988",
+        "reference": "A man dressed in everyday clothes swinging a racket at a tennis ball",
+        "generated": "A man is playing tennis on a tennis court."
+      },
+      {
+        "image": "val2014_316123",
+        "reference": "A group of boys playing a soccer in the park.",
+        "generated": "A group of young boys playing soccer in a park."
+      },
+      {
+        "image": "val2014_414379",
+        "reference": "A street scene of the intersection with people and cars.",
+        "generated": "A group of people on a street with motorcycles."
+      },
+      {
+        "image": "val2014_393277",
+        "reference": "A clock tower in a European city looks down at the traffic below.",
+        "generated": "A car is parked next to a clock tower."
+      },
+      {
+        "image": "val2014_105912",
+        "reference": "A WOMAN IS STANDIG ON THE PAVEMENT LOOKING",
+        "generated": "A red fire hydrant with a red flag on it."
+      },
+      {
+        "image": "val2014_335810",
+        "reference": "A plate is piled high of orange slices while a bunch of bananas sits next to it.",
+        "generated": "A plate of oranges and bananas sitting on a table."
+      },
+      {
+        "image": "val2014_455448",
+        "reference": "Holding a chocolate cupcake with colored sprinkles still in the paper cup.",
+        "generated": "A person holding a chocolate doughnut with many candies."
+      },
+      {
+        "image": "val2014_520389",
+        "reference": "A cat laying on a purse on the floor",
+        "generated": "A cat sitting on a couch with a purse."
+      },
+      {
+        "image": "val2014_357096",
+        "reference": "A young child plunging a toilet with a plunger.",
+        "generated": "A little girl is standing in front of a toilet."
+      },
+      {
+        "image": "val2014_47898",
+        "reference": "The sun sets on a rustic backcountry setting.",
+        "generated": "A view of a river with a lot of trees and buildings."
+      },
+      {
+        "image": "val2014_98322",
+        "reference": "a man, women and two children preparing to ski.",
+        "generated": "A group of people sitting on a snowy hill."
+      },
+      {
+        "image": "val2014_368442",
+        "reference": "this is a giraffe standing in the middle of grass",
+        "generated": "A giraffe and two cows in a zoo."
+      },
+      {
+        "image": "val2014_49682",
+        "reference": "A woman with a box of chicken has an umbrella hat.",
+        "generated": "A man holding an umbrella and a food tray."
+      },
+      {
+        "image": "val2014_421999",
+        "reference": "A zebras rump is up close for a photo.",
+        "generated": "A zebra standing in a fenced area with a tree in the background."
+      },
+      {
+        "image": "val2014_499143",
+        "reference": "A woman jumping a horse over a pipe.",
+        "generated": "A woman riding a horse in a barn."
+      },
+      {
+        "image": "val2014_310516",
+        "reference": "A FLOCK OF BIRDS ARE FLYING OVER THE OCEAN",
+        "generated": "A group of birds flying in the sky over the ocean."
+      }
+    ]
+  }
+]

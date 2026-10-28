@@ -1,0 +1,19 @@
+suite,comparison,metric,mean,low,high
+grounding_test,correct minus swap,accuracy,0.59375,0.453125,0.7265625
+grounding_test,correct minus swap,pair_accuracy,0.609375,0.484375,0.734375
+grounding_test,swap minus correct,nll,3.377197262882646,2.721548465425235,4.0090515183555056
+grounding_test,correct minus mismatch,accuracy,0.3828125,0.296875,0.46875
+grounding_test,correct minus mismatch,pair_accuracy,0.59375,0.46875,0.71875
+grounding_test,mismatch minus correct,nll,1.5385393095750715,1.1625459823897473,1.9204335525285388
+grounding_test,correct minus none,accuracy,0.3359375,0.2421875,0.4296875
+grounding_test,correct minus none,pair_accuracy,0.609375,0.484375,0.734375
+grounding_test,none minus correct,nll,0.4030877394550316,0.13855246143153294,0.6476282377303335
+vqa_test,correct minus swap,accuracy,0.35312499999999997,0.253125,0.45468749999999997
+vqa_test,correct minus swap,pair_accuracy,0.2916666666666667,0.1875,0.3958333333333333
+vqa_test,swap minus correct,nll,1.9670758808360915,1.5861973462348335,2.3551389517425454
+vqa_test,correct minus mismatch,accuracy,0.24635416666666665,0.17290364583333337,0.32136718750000004
+vqa_test,correct minus mismatch,pair_accuracy,0.2916666666666667,0.19791666666666666,0.3958333333333333
+vqa_test,mismatch minus correct,nll,1.3259044719898156,0.9482775177289644,1.7233106350146046
+vqa_test,correct minus none,accuracy,0.2651041666666667,0.1942708333333333,0.33699218750000004
+vqa_test,correct minus none,pair_accuracy,0.3229166666666667,0.22916666666666666,0.4166666666666667
+vqa_test,none minus correct,nll,1.0455214332381122,0.7442218759287547,1.3396543301081314

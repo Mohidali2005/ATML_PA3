@@ -1,0 +1,65 @@
+{
+  "updates": 4500,
+  "stages": {
+    "caption": {
+      "train_seconds": 3047.5887244030037,
+      "eval_seconds": 79.54283381299979,
+      "peak_gb": 1.64933888,
+      "warmup_updates": 113,
+      "connector_params": 1837056,
+      "adapter_params": 0,
+      "eval_peak_gb": 1.64933888
+    },
+    "instruction": {
+      "train_seconds": 2376.807262018998,
+      "eval_seconds": 61.954158123000525,
+      "peak_gb": 1.670623744,
+      "warmup_updates": 75,
+      "connector_params": 1837056,
+      "adapter_params": 4587520,
+      "eval_peak_gb": 1.670623744
+    },
+    "natural": {
+      "train_seconds": 1191.5725153250105,
+      "eval_seconds": 39.71189372700064,
+      "peak_gb": 1.670623744,
+      "warmup_updates": 38,
+      "connector_params": 1837056,
+      "adapter_params": 4587520,
+      "eval_peak_gb": 1.670623744
+    }
+  },
+  "mixture": {
+    "caption": {
+      "caption": 18000
+    },
+    "instruction": {
+      "counting": 3024,
+      "presence": 5981,
+      "caption": 2995
+    },
+    "natural": {
+      "vqa": 4145,
+      "counting": 608,
+      "caption": 642,
+      "presence": 605
+    }
+  },
+  "skipped_updates": 7,
+  "calibration": {
+    "text_norm": 0.9200865626335144,
+    "visual_norm_before": 15.91796875,
+    "scale": 0.057801757063602376,
+    "visual_norm_after": 0.9200864434242249
+  },
+  "train_seconds": 6615.968501747012,
+  "eval_seconds": 181.20888566300096,
+  "checkpoint_seconds": 2.0237003390000154,
+  "peak_memory_gb": 1.670623744,
+  "resume_checkpoint_bytes": 77783883,
+  "stage_weight_bytes": [
+    7350691,
+    25772317,
+    25772317
+  ]
+}

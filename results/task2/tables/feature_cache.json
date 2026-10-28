@@ -1,0 +1,14 @@
+{
+  "images": 9408,
+  "total_seconds": 182.05360857799997,
+  "download_seconds": 95.39327844300078,
+  "encode_seconds": 85.19053614900008,
+  "peak_memory_gb": 0.445817344,
+  "encoder_params": 92884224,
+  "feature_bytes": 2832334976,
+  "shape": [
+    9408,
+    196,
+    768
+  ]
+}

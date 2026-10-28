@@ -1,0 +1,61 @@
+{
+  "feature_shape": [
+    2,
+    196,
+    768
+  ],
+  "layer_norm_once_error": 0.0,
+  "unnormalized_difference": 0.7921565771102905,
+  "second_norm_difference": 0.42611610889434814,
+  "patch_grid": [
+    14,
+    14
+  ],
+  "cached_vs_fresh_mean_error": 0.00739999208599329,
+  "stage1_trainable": {
+    "connector": 1837056,
+    "language_model": 0
+  },
+  "stage2_trainable": {
+    "connector": 1837056,
+    "adapters": 4587520
+  },
+  "adapter_targets": [
+    "k_proj",
+    "o_proj",
+    "q_proj",
+    "v_proj"
+  ],
+  "image_tokens": {
+    "with_image": 196,
+    "no_image": 0
+  },
+  "prompt_tokens": {
+    "with_image": 225,
+    "no_image": 26
+  },
+  "prompt_text": "<|im_start|>user\nAre there carrots?\nAnswer the question using a single word or phrase.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+  "left_padding_positions_start_at_zero": true,
+  "padding_invariance_error": 0.013625144958496094,
+  "batched_generation_matches_single": true,
+  "connector_gradient_norm": 381.2369384765625,
+  "language_model_gradients": 0,
+  "split_isolation": {
+    "captions_dev": 96,
+    "grounding_dev": 48,
+    "grounding_test": 128,
+    "vqa_dev": 64,
+    "vqa_test": 192
+  },
+  "pairs": {
+    "captions_train": 18000,
+    "captions_dev": 96,
+    "presence_pool": 4000,
+    "counting_pool": 4000,
+    "vqa_train": 1536,
+    "grounding_dev": 24,
+    "grounding_test": 64,
+    "vqa_dev": 32,
+    "vqa_test": 96
+  }
+}
