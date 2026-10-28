@@ -145,7 +145,7 @@ def qualitative(results,suite,figures):
             ax.imshow(fetch_image(c[i]["image"]))
             ax.axis("off")
             text = (f"{kind}: {textwrap.fill(c[i]['question'],40)}\nreference: {c[i]['reference']}\n"
-                    f"answer on this image: {c[i]['prediction']}\nanswer on the partner image: {s[1-i]['prediction']}")
+                    f"answer on this image: {c[i]['prediction']}\nanswer on the partner image: {s[i]['prediction']}")
             ax.set_title(text,fontsize=11,loc="left")
     fig.tight_layout()
     fig.savefig(figures/f"qualitative_{suite}.png",dpi=130)
