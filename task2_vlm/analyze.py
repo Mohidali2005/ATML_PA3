@@ -71,8 +71,11 @@ def learning_curves(history,dev,ends,figures):
         ax.legend(loc="upper center",bbox_to_anchor=(0.5,-0.2),ncol=2,fontsize=10,frameon=False)
     for ax in axes.flat:
         ax.set_title(ax.get_title(),fontsize=13,pad=22)
+        low,high = ax.get_xlim()
         for n,(a,b) in enumerate(zip([0]+list(ends[:-1]),ends)):
-            ax.text((a+b)/2,1.0,f"Stage {n+1}",ha="center",va="bottom",fontsize=10,color="dimgray",transform=ax.get_xaxis_transform())
+            # skipping stage labels that fall outside the panel
+            if low < (a+b)/2 < high:
+                ax.text((a+b)/2,1.0,f"Stage {n+1}",ha="center",va="bottom",fontsize=10,color="dimgray",transform=ax.get_xaxis_transform())
     fig.tight_layout()
     fig.subplots_adjust(hspace=0.55)
     fig.savefig(figures/"learning_curves.png",dpi=150)
