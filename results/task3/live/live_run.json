@@ -1,0 +1,8 @@
+{
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+  "gpu": "Tesla T4",
+  "torch": "2.11.0+cu128",
+  "questions": 50,
+  "wall_seconds": 7987.4334400200005
+}

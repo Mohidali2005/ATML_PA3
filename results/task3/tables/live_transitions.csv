@@ -1,0 +1,3 @@
+strategy,wrong_to_correct,correct_to_wrong,both_correct,both_wrong,answer_changed
+Parallel sampling,4,1,29,16,7
+Sequential refinement,2,0,30,18,7

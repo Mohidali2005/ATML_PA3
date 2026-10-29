@@ -1,0 +1,4 @@
+strategy,baseline,difference,low,high
+Parallel sampling,Single longer response,4.0,-6.0,14.000000000000002
+Sequential refinement,Single longer response,2.0,-8.0,12.0
+Sequential refinement,Parallel sampling,-2.0,-8.0,6.0

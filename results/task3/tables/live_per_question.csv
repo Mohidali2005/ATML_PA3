@@ -1,0 +1,51 @@
+question,gold,initial,initial_correct,Single longer response_answer,Parallel sampling_answer,Sequential refinement_answer,Single longer response_correct,Parallel sampling_correct,Sequential refinement_correct
+test:943,14,14,True,14,14,14,True,True,True
+test:2688,-1,-1,True,-1,-1,-1,True,True,True
+test:3504,216,1080,False,216,1080,1080,True,False,False
+test:4335,5040,5040,True,5040,5040,5040,True,True,True
+test:2460,154,154,True,,154,154,False,True,True
+test:1324,\frac{3}{16},\frac{15}{32},False,\frac{5}{32},\frac{1}{2},\frac{15}{32},False,False,False
+test:2340,6,6\sqrt[3]{2},False,6\sqrt[3]{2},6,6\sqrt[3]{2},False,True,False
+test:1577,14,14,True,14,14,14,True,True,True
+test:639,-9,-9,True,-9,-9,-9,True,True,True
+test:2892,-71,,False,-2,,0,False,False,False
+test:4702,59,-59,False,179,-59,-59,False,False,False
+test:1709,75,75,True,50,50,75,False,False,True
+test:4041,56,56,True,56,56,56,True,True,True
+test:2119,28,21,False,21,21,21,False,False,False
+test:2087,7,7,True,7,7,7,True,True,True
+test:4549,11,5,False,6,5,5,False,False,False
+test:2732,\frac{266664}{5},54073.466667,False,53332.8,54073.466667,54073.466667,True,False,False
+test:1433,\frac{1}{4},\frac{1}{4},True,\frac{1}{4},\frac{1}{4},\frac{1}{4},True,True,True
+test:3285,0,,False,,,1688,False,False,False
+test:29,16,-16,False,16,16,16,True,True,True
+test:2948,"1+\sqrt 2,\ 1-\sqrt 2,\ 2+\sqrt 3,\ 2-\sqrt 3",,False,0 \text{ and } 4,,0 \text{ and } 3,False,False,False
+test:1997,120,120^\circ,True,120,120^\circ,120^\circ,True,True,True
+test:414,1,"-2, 1",False,"-2, 1","-2, 1","-2, 1",False,False,False
+test:1808,2,2,True,2,2,2,True,True,True
+test:4962,"(4,\pi)","(4, \pi)",True,"(4, \pi)","(4, \pi)","(4, \pi)",True,True,True
+test:274,2,2,True,2,2,2,True,True,True
+test:916,14,14,True,14,14,14,True,True,True
+test:534,56,48,False,56,56,48,True,True,False
+test:2177,18,6,False,0,6,6,False,False,False
+test:1043,2,2,True,2,2,2,True,True,True
+test:373,11,11,True,11,11,11,True,True,True
+test:1379,\frac{10}{19},\frac{3}{19},False,\frac{17}{19},\frac{16}{19},\frac{3}{19},False,False,False
+test:196,81,81,True,101,81,81,False,True,True
+test:2134,15,15,True,15,15,15,True,True,True
+test:771,\frac{160}{33},\frac{160}{33},True,\frac{160}{33},\frac{160}{33},\frac{160}{33},True,True,True
+test:3572,22,22,True,22,22,22,True,True,True
+test:2358,2 \sqrt{5},,False,4,,2,False,False,False
+test:2019,5,5,True,5,5,5,True,True,True
+test:4144,5,5,True,5,5,5,True,True,True
+test:3314,15,15,True,15,15,15,True,True,True
+test:3239,4,4,True,4,4,4,True,True,True
+test:4678,6,6,True,3,6,6,False,True,True
+test:1122,5,5,True,5,5,5,True,True,True
+test:4168,0.6,0.6,True,0.6,0.6,0.6,True,True,True
+test:1300,1,1,True,1,1,1,True,True,True
+test:4516,\frac{25 \sqrt{10}}{4},,False,4\sqrt{10},,4\sqrt{10},False,False,False
+test:1903,80,75,False,45,75,75,False,False,False
+test:1916,144,126,False,120,126,126,False,False,False
+test:3409,3,,False,3,3,3,True,True,True
+test:3617,9,9,True,9,9,9,True,True,True
