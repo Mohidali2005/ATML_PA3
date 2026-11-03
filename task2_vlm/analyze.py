@@ -106,10 +106,11 @@ def resources(summary,cache,scores,tables):
     """Compact resource table by stage"""
     rows = []
     for name,s in summary["stages"].items():
-        rows.append([name,s["connector_params"],s["adapter_params"],s["train_seconds"],s["eval_seconds"],s["peak_gb"]])
-    rows.append(["feature_caching",cache["encoder_params"],0,cache["total_seconds"],0,cache["peak_memory_gb"]])
-    rows.append(["final_evaluation",0,0,0,scores["eval_seconds"],scores["peak_memory_gb"]])
-    write_csv(tables/"resources.csv",["stage","connector_params","adapter_params","train_seconds","eval_seconds","peak_gb"],rows)
+        rows.append([name,s["connector_params"],s["adapter_params"],0,s["train_seconds"],s["eval_seconds"],s["peak_gb"]])
+    # the encoder only runs once while caching and is never trained
+    rows.append(["feature_caching",0,0,cache["encoder_params"],cache["total_seconds"],0,cache["peak_memory_gb"]])
+    rows.append(["final_evaluation",0,0,0,0,scores["eval_seconds"],scores["peak_memory_gb"]])
+    write_csv(tables/"resources.csv",["stage","connector_params","adapter_params","frozen_encoder_params","train_seconds","eval_seconds","peak_gb"],rows)
 
 
 def pick_pairs(results,suite):
