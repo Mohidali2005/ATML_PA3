@@ -177,6 +177,46 @@ def adaptive_figure(comparison,adaptive,figures):
     plt.close(fig)
 
 
+def selection_failures(cfg,results):
+    """What the highest scoring rollout looks like and what wins the vote when self consistency misses at 32 rollouts
+
+    every quantity is averaged over the saved orders of each evaluation question and then over questions
+    """
+    splits = load_json(results/"ids"/"splits.json")
+    rows = []
+    for name in cfg["datasets"]:
+        arrays,orders,_ = load_arrays(cfg,name)
+        position = {q:i for i,q in enumerate(arrays["questions"])}
+        questions = [position[q] for q in splits[name]["evaluation"]]
+        picks = {s:np.zeros((len(questions),3)) for s in ("L","K")}
+        missed,no_answer,winner_share,correct_share = (np.zeros(len(questions)) for _ in range(4))
+        for i,q in enumerate(questions):
+            group,correct,capped = arrays["group"][q],arrays["correct"][q],arrays["capped"][q]
+            for o in range(orders.shape[1]):
+                idx = orders[q,o,:32]
+                for s in picks:
+                    p = idx[np.argmax(arrays[s][q,idx])]
+                    picks[s][i] += [capped[p],group[p] == -1,correct[p]]
+                w = idx[vote_winner(group[idx])]
+                if correct.any() and not correct[w]:
+                    missed[i] += 1
+                    no_answer[i] += group[w] == -1
+                    winner_share[i] += (group == group[w]).mean()
+                    correct_share[i] += correct.mean()
+        runs = orders.shape[1]
+        # averaging the vote shares only over the runs where the vote missed
+        miss_runs = max(missed.sum(),1)
+        stats = {"pool_capped":100*arrays["capped"][questions].mean(),"pool_no_answer":100*(arrays["group"][questions] == -1).mean()}
+        for s,label in (("L","logp"),("K","selfcert")):
+            for j,kind in enumerate(("capped","no_answer","correct")):
+                stats[f"{label}_pick_{kind}"] = 100*picks[s][:,j].mean()/runs
+        stats.update({"missed_questions":missed.sum()/runs,"no_answer_wins":no_answer.sum()/runs,
+                      "winner_vote_share":100*winner_share.sum()/miss_runs,"correct_vote_share":100*correct_share.sum()/miss_runs})
+        rows += [{"dataset":name,"measure":k,"value":round(float(v),3)} for k,v in stats.items()]
+    pd.DataFrame(rows).to_csv(results/"tables"/"selection_failures.csv",index=False)
+    print(pd.DataFrame(rows).pivot(index="measure",columns="dataset",values="value").to_string())
+
+
 def answer_votes(extracted,rows):
     """Answer strings of a set of rollouts with their vote counts"""
     counts = {}
@@ -240,9 +280,13 @@ def qualitative(cfg,results):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--config",default="configs/task3.yaml")
+    ap.add_argument("--only",choices=["selection"])
     args = ap.parse_args()
     cfg = load_yaml(args.config)
     results = repo_path(cfg["paths"]["results_dir"])
+    selection_failures(cfg,results)
+    if args.only == "selection":
+        return
     figures = results/"figures"
     figures.mkdir(parents=True,exist_ok=True)
     comparison = pd.read_csv(results/"tables"/"method_comparison.csv")
