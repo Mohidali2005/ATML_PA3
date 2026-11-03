@@ -1,0 +1,6 @@
+method,trainable_params_m,train_hours,peak_memory_gb,final_checkpoint_mb,resume_checkpoint_mb,skipped_updates,reference_mb,basis_mb,setup_seconds,export_seconds
+Full FT,596.05,2.285,12.544,1208.019,7153.08,0,1192.1,0.0,1.208,47.603
+Full FT + L2-SP,596.05,2.384,13.736,1208.019,7153.133,0,1192.1,0.0,0.034,3.188
+LoRA-4,2.523,2.737,3.37,10.207,30.844,0,0.0,0.0,0.053,0.098
+LoRA-16,10.093,2.795,3.491,40.484,121.677,0,0.0,0.0,0.053,0.119
+OPLoRA-16,10.093,3.428,3.814,40.484,121.677,0,0.0,322.961,30.993,0.151

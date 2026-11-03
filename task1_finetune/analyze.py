@@ -1,4 +1,5 @@
 import argparse
+import re
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -12,7 +13,15 @@ NAMES = {"baseline":"Baseline","full_mid":"Full FT (mid)","full":"Full FT","l2sp
          "lora4":"LoRA-4","lora16":"LoRA-16","oplora":"OPLoRA-16"}
 COLORS = {"full":"steelblue","l2sp":"darkorange","lora4":"seagreen","lora16":"firebrick","oplora":"mediumpurple",
           "baseline":"slategray","full_mid":"lightsteelblue"}
+# dashing the runs whose curves sit almost on top of another run
+LINESTYLES = {"l2sp":"--","oplora":"--"}
 PRIMARY = ["gsm8k","hellaswag_norm","boolq","arc_easy_norm"]
+# the per example file and column behind each primary metric
+SAMPLE_COLUMNS = {"gsm8k":("gsm8k","correct"),"gsm8k_rescued":("gsm8k","rescued"),"hellaswag_norm":("hellaswag","acc_norm"),
+                  "boolq":("boolq","acc"),"arc_easy_norm":("arc_easy","acc_norm")}
+COMPARISONS = [("full_mid","baseline"),("full","baseline"),("l2sp","baseline"),("lora4","baseline"),
+               ("lora16","baseline"),("oplora","baseline"),("full","full_mid"),("lora16","lora4"),
+               ("l2sp","full"),("oplora","lora16"),("full","lora16")]
 
 
 def metric(scores,task,name):
@@ -26,25 +35,77 @@ def metric_with_filter(scores,task,name,filter_name):
     return 100*scores[task][f"{name},{filter_name}"]
 
 
+def boxed_number(text):
+    """The number inside the last boxed answer of a response or None when there is none"""
+    # dropping text units such as minutes so the number inside is readable while fractions stay unread
+    boxed = re.findall(r"\\boxed\{([^{}]*)\}",re.sub(r"\\text\{[^{}]*\}","",text))
+    found = re.search(r"-?\d+(?:\.\d+)?",boxed[-1].replace(",","")) if boxed else None
+    return float(found.group()) if found else None
+
+
+def gsm8k_samples(results,condition):
+    """GSM8K results per question with failed extractions marked and rescued from the boxed answer"""
+    samples = pd.read_json(repo_path(f"{results}/eval/{condition}_gsm8k_samples.jsonl"),lines=True,dtype=False)
+    # the flexible filter can keep a latex delimiter such as $$ that holds no number at all
+    samples["no_number"] = ~samples["extracted"].astype(str).str.contains(r"\d")
+    boxed = samples["response"].map(boxed_number).astype(float)
+    target = samples["target"].astype(str).str.replace(",","").astype(float)
+    samples["rescued"] = (samples["correct"].astype(bool) | (samples["no_number"] & (boxed == target))).astype(float)
+    return samples
+
+
 def benchmark_table(results):
     """One row per condition with the four benchmarks and the change from the baseline in points"""
     rows = []
     for c in CONDITIONS:
         s = load_json(f"{results}/eval/{c}_scores.json")
-        samples = pd.read_json(repo_path(f"{results}/eval/{c}_gsm8k_samples.jsonl"),lines=True)
+        samples = gsm8k_samples(results,c)
         rows.append({"condition":c,
                      "gsm8k":metric_with_filter(s,"gsm8k_cot","exact_match","flexible-extract"),
                      "gsm8k_strict":metric_with_filter(s,"gsm8k_cot","exact_match","strict-match"),
+                     "gsm8k_rescued":100*samples["rescued"].mean(),
                      "gsm8k_truncated":100*samples["truncated"].mean(),
-                     "gsm8k_no_answer":100*(samples["extracted"] == "[invalid]").mean(),
+                     "gsm8k_no_number":100*samples["no_number"].mean(),
                      "hellaswag_raw":metric(s,"hellaswag","acc"),"hellaswag_norm":metric(s,"hellaswag","acc_norm"),
                      "boolq":metric(s,"boolq","acc"),
                      "arc_easy_raw":metric(s,"arc_easy","acc"),"arc_easy_norm":metric(s,"arc_easy","acc_norm")})
     table = pd.DataFrame(rows)
-    for column in PRIMARY:
+    for column in list(SAMPLE_COLUMNS):
         table[column+"_delta"] = table[column]-table.loc[0,column]
     table.round(2).to_csv(repo_path(f"{results}/tables/benchmark_table.csv"),index=False)
     print(table.round(2).to_string(index=False))
+
+
+def correctness(results,condition,task,column):
+    """Per question correctness of one condition indexed by question id"""
+    path = f"{results}/eval/{condition}_{task}_samples"
+    if task == "gsm8k":
+        table = gsm8k_samples(results,condition)
+    else:
+        table = pd.read_csv(repo_path(path+".csv"))
+    return table.set_index("doc_id")[column]
+
+
+def paired_bootstrap(results,seed,resamples=4000):
+    """Paired differences in points with 95 percent intervals from resampling questions"""
+    rows = []
+    for benchmark,(task,column) in SAMPLE_COLUMNS.items():
+        scores = pd.DataFrame({c:correctness(results,c,task,column) for c in CONDITIONS})
+        assert scores.notna().all().all()
+        diffs = np.stack([scores[a].to_numpy()-scores[b].to_numpy() for a,b in COMPARISONS])
+        # reseeding per benchmark so every comparison is scored on the same resampled questions
+        rng = np.random.default_rng(seed)
+        n = diffs.shape[1]
+        means = np.stack([diffs[:,rng.integers(0,n,n)].mean(axis=1) for _ in range(resamples)])
+        low,high = np.percentile(100*means,[2.5,97.5],axis=0)
+        for i,(a,b) in enumerate(COMPARISONS):
+            rows.append({"comparison":f"{NAMES[a]} minus {NAMES[b]}","benchmark":benchmark,
+                         "difference":100*diffs[i].mean(),"low":low[i],"high":high[i],
+                         "excludes_zero":bool(low[i] > 0 or high[i] < 0)})
+    table = pd.DataFrame(rows)
+    table.round(2).to_csv(repo_path(f"{results}/tables/paired_differences.csv"),index=False)
+    table["cell"] = table.apply(lambda r:f"{r['difference']:+.2f} [{r['low']:.2f}, {r['high']:.2f}]",axis=1)
+    print(table.pivot(index="comparison",columns="benchmark",values="cell")[list(SAMPLE_COLUMNS)].to_string())
 
 
 def smooth(values,window=25):
@@ -57,14 +118,15 @@ def loss_figure(results):
     fig,axes = plt.subplots(1,2,figsize=(11,4))
     for m in METHODS:
         log = pd.DataFrame(load_json(f"{results}/tables/{m}_training_log.json"))
-        axes[0].plot(log["update"],smooth(log["loss"]),color=COLORS[m],label=NAMES[m])
-        axes[1].plot(log["update"],log["lr"],color=COLORS[m])
+        style = LINESTYLES.get(m,"-")
+        axes[0].plot(log["update"],smooth(log["loss"]),color=COLORS[m],linestyle=style,label=NAMES[m])
+        axes[1].plot(log["update"],log["lr"],color=COLORS[m],linestyle=style)
     axes[0].set_xlabel("optimizer update")
     axes[0].set_ylabel("SFT loss (25 update average)")
     axes[0].set_title("(a) Training loss")
     axes[1].set_xlabel("optimizer update")
     axes[1].set_ylabel("learning rate")
-    axes[1].set_yscale("log")
+    axes[1].ticklabel_format(axis="y",style="sci",scilimits=(0,0))
     axes[1].set_title("(b) Learning rate schedule")
     fig.legend(loc="lower center",ncol=5,frameon=False,bbox_to_anchor=(0.5,-0.02))
     fig.tight_layout(rect=(0,0.08,1,1))
@@ -125,7 +187,9 @@ def diagnostics_figure(results):
             ax.bar(np.arange(len(layers))+i*width,np.maximum(values,1e-10),width,color=COLORS[c],label=NAMES[c])
         ax.set_xticks(np.arange(len(layers))+0.4-width/2)
         ax.set_xticklabels([f"layer {l}" for l in layers])
-        ax.set_yscale("log")
+        # only interference needs a log scale since the orthogonal adapter sits near 1e-8
+        if column == "rho":
+            ax.set_yscale("log")
         ax.set_title(title)
     fig.legend(*axes[0,0].get_legend_handles_labels(),loc="lower center",ncol=6,frameon=False,bbox_to_anchor=(0.5,-0.01))
     fig.tight_layout(rect=(0,0.06,1,1))
@@ -147,7 +211,8 @@ def annotation_summary(results):
         truncated=("truncated","sum"),repeated_trigrams=("repeated_trigrams","mean"),math_markers=("math_markers","mean"),
         valid_json=("valid_json","sum"),template_filled=("template_filled","sum"))
     if labelled:
-        summary["not_coherent"] = key.groupby("condition",observed=True)["coherent_relevant"].apply(lambda s:(s != "yes").sum())
+        summary["coherent_partly"] = key.groupby("condition",observed=True)["coherent_relevant"].apply(lambda s:(s == "partly").sum())
+        summary["coherent_no"] = key.groupby("condition",observed=True)["coherent_relevant"].apply(lambda s:(s == "no").sum())
         summary["math_framing"] = key.groupby("condition",observed=True)["math_framing"].apply(lambda s:(s == "yes").sum())
         summary["inappropriate"] = key.groupby("condition",observed=True)["inappropriate"].apply(lambda s:(s == "yes").sum())
     summary.round(3).to_csv(repo_path(f"{results}/tables/annotation_summary.csv"))
@@ -157,11 +222,14 @@ def annotation_summary(results):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--config",default="configs/task1.yaml")
-    ap.add_argument("--only",choices=["benchmarks","curves","resources","diagnostics","annotation"])
+    ap.add_argument("--only",choices=["benchmarks","bootstrap","curves","resources","diagnostics","annotation"])
     args = ap.parse_args()
-    results = load_yaml(args.config)["paths"]["results_dir"]
+    cfg = load_yaml(args.config)
+    results = cfg["paths"]["results_dir"]
     repo_path(f"{results}/figures").mkdir(parents=True,exist_ok=True)
     steps = {"benchmarks":benchmark_table,"resources":resources_table,"diagnostics":diagnostics_figure,"annotation":annotation_summary}
+    if args.only in (None,"bootstrap"):
+        paired_bootstrap(results,cfg["seed"])
     if args.only in (None,"curves"):
         loss_figure(results)
         regularization_figure(results)
